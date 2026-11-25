@@ -46,6 +46,8 @@
    - 사용자의 요청이 현재 Phase와 일치하는지 대조한다(선행 Phase가 미완료인데 이후 Phase를 요청하면 임의로 건너뛰지 않고 `NEEDS_HUMAN`으로 확인).
    - Phase 단위로 구현하고, 완료 시 `python scripts/verify.py` 통과 후 사람에게 확인을 받는다. Phase당 `verify.py` 연속 실패 상한은 기본 3회이며, 초과 시 대화창에 `NEEDS_HUMAN`을 보고하고 중단한다.
 2. **`Maintenance` 모드일 때 (또는 GitHub Issue 작업을 명시한 경우):**
+   - **새 Issue를 시작할 때는 새 채팅창(새 세션)에서 시작하는 것을 권장한다** (이전 대화 맥락 섞임 방지 · 상태 원본은 Issue 코멘트 `LOOP-4`).
+   - Issue 초안 작성이 필요하면 `.agents/skills/issue-loop/references/issue-draft-template.md`를 참고해 6항목 초안을 작성한다.
    - `이슈 처리해줘` · `12번 이슈 해줘` · `이어서 진행해줘` 처럼 Issue 작업을 요청받으면, 구현에 들어가기 전에 **`issue-loop` 스킬을 쓸지 사람에게 먼저 묻는다.** (이미 스킬 호출을 명시한 경우는 생략)
 
 | 답 | 진행 |
